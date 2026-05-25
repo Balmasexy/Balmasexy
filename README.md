@@ -83,7 +83,7 @@ I love meeting fellow developers, data enthusiasts, and DevOps practitioners!
 - 💼 **LinkedIn**: [Add your LinkedIn URL](#)
 - 🐦 **Twitter/X**: [@Balmasexy111](https://x.com/Balmasexy111)
 - 📧 **Email**: [www.alabamaabiodun@gmail.com](mailto:www.alabamaabiodun@gmail.com)
-- 🌐 **Portfolio**: [yourportfolio.com](#)
+- 🌐 **Portfolio**: [https://balmasexy.com](https://balmasexy.com)
 - 📝 **Blog**: [yourblog.com](#) or [Medium](https://medium.com/)
 
 ## 📝 Latest Blog Posts
