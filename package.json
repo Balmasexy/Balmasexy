@@ -1,0 +1,50 @@
+{
+  "name": "balmz-token",
+  "version": "1.0.0",
+  "description": "BALMZ Token - Advanced ERC-20 smart contract",
+  "main": "index.js",
+  "scripts": {
+    "test": "hardhat test",
+    "test:gas": "REPORT_GAS=true hardhat test",
+    "compile": "hardhat compile",
+    "deploy:local": "hardhat run scripts/deploy.js --network localhost",
+    "deploy:sepolia": "hardhat run scripts/deploy.js --network sepolia",
+    "deploy:mainnet": "hardhat run scripts/deploy.js --network mainnet",
+    "deploy:polygon": "hardhat run scripts/deploy.js --network polygon",
+    "deploy:mumbai": "hardhat run scripts/deploy.js --network mumbai",
+    "deploy:bsc": "hardhat run scripts/deploy.js --network bsc",
+    "deploy:bsc:testnet": "hardhat run scripts/deploy.js --network bscTestnet",
+    "verify": "hardhat verify",
+    "clean": "hardhat clean",
+    "node": "hardhat node",
+    "flatten": "hardhat flatten",
+    "coverage": "hardhat coverage"
+  },
+  "keywords": [
+    "ethereum",
+    "erc20",
+    "token",
+    "smart-contract",
+    "solidity",
+    "hardhat",
+    "blockchain"
+  ],
+  "author": "Balmasexy (Alabama Abiodun)",
+  "license": "MIT",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^3.0.0",
+    "@nomicfoundation/hardhat-chai-matchers": "^2.0.0",
+    "@nomicfoundation/hardhat-ethers": "^3.0.0",
+    "@nomiclabs/hardhat-ethers": "^10.2.0",
+    "@nomiclabs/hardhat-etherscan": "^3.1.7",
+    "chai": "^4.3.10",
+    "dotenv": "^16.3.1",
+    "ethers": "^6.10.0",
+    "hardhat": "^2.19.4",
+    "hardhat-gas-reporter": "^1.0.9",
+    "solidity-coverage": "^0.8.5"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.0.0"
+  }
+}
