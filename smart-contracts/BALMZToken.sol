@@ -6,6 +6,7 @@ import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol";
 import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Pausable.sol";
 import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Permit.sol";
 import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Votes.sol";
+import "@openzeppelin/contracts/token/ERC20/extensions/Nonces.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 /**
@@ -36,6 +37,9 @@ contract BALMZToken is
     
     /// @notice Token decimals
     uint256 public constant TOKEN_DECIMALS = 18;
+    
+    /// @notice Fee calculation divisor (basis points: 10000 = 100%)
+    uint256 public constant FEE_DIVISOR = 10000;
     
     // ============================================
     // STATE VARIABLES
@@ -74,6 +78,7 @@ contract BALMZToken is
     event TransactionFeeUpdated(uint256 newFeePercentage);
     event FeesCollected(uint256 amount);
     event FeesWithdrawn(address indexed recipient, uint256 amount);
+    event FeesDistributed(uint256 treasuryAmount, uint256 marketingAmount);
     
     // ============================================
     // MODIFIERS
@@ -224,6 +229,8 @@ contract BALMZToken is
         
         _transfer(address(this), treasuryWallet, treasuryAmount);
         _transfer(address(this), marketingWallet, marketingAmount);
+        
+        emit FeesDistributed(treasuryAmount, marketingAmount);
     }
     
     // ============================================
@@ -278,7 +285,7 @@ contract BALMZToken is
         uint256 feeAmount = 0;
         if (transactionFeePercentage > 0 && from != address(0) && to != address(0)) {
             if (!whitelisted[from] && !whitelisted[to]) {
-                feeAmount = (amount * transactionFeePercentage) / 10000;
+                feeAmount = (amount * transactionFeePercentage * 100) / FEE_DIVISOR;
                 accumulatedFees += feeAmount;
                 emit FeesCollected(feeAmount);
             }
