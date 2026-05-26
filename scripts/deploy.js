@@ -53,22 +53,27 @@ async function main() {
     // Verify contract on Etherscan (optional)
     if (process.env.ETHERSCAN_API_KEY && hre.network.name !== "hardhat" && hre.network.name !== "localhost") {
       console.log("\n⏳ Waiting for block confirmations before Etherscan verification...");
-      await balmzToken.deploymentTransaction().wait(5);
+      
+      const deploymentTx = balmzToken.deploymentTransaction();
+      if (deploymentTx) {
+        await deploymentTx.wait(5);
 
-      console.log("🔍 Verifying contract on Etherscan...");
-      try {
-        await hre.run("verify:verify", {
-          address: contractAddress,
-          constructorArguments: [TREASURY_WALLET, MARKETING_WALLET],
-        });
-        console.log("✅ Contract verified on Etherscan!");
-      } catch (error) {
-        console.log("⚠️ Etherscan verification failed (this is optional):", error.message);
+        console.log("🔍 Verifying contract on Etherscan...");
+        try {
+          await hre.run("verify:verify", {
+            address: contractAddress,
+            constructorArguments: [TREASURY_WALLET, MARKETING_WALLET],
+          });
+          console.log("✅ Contract verified on Etherscan!");
+        } catch (error) {
+          console.log("⚠️ Etherscan verification failed (this is optional):", error.message);
+        }
       }
     }
 
     // Save deployment info to file
     const fs = require("fs");
+    const deploymentTx = balmzToken.deploymentTransaction();
     const deploymentInfo = {
       network: hre.network.name,
       contractAddress: contractAddress,
@@ -80,7 +85,7 @@ async function main() {
       totalSupply: totalSupply.toString(),
       decimals: decimals.toString(),
       deploymentDate: new Date().toISOString(),
-      deploymentTransaction: balmzToken.deploymentTransaction().hash,
+      deploymentTransaction: deploymentTx ? deploymentTx.hash : "N/A",
     };
 
     const dir = "deployments";
