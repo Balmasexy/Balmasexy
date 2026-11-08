@@ -51,12 +51,18 @@ I'm a versatile engineer with expertise across the full software development lif
 
 ## 📚 Featured Projects
 
-Check out some of my work:
-- **[Project Name](#)** - Full-stack application with ML integration
-- **[Project Name](#)** - Data science project showcasing advanced analytics
-- **[Project Name](#)** - Infrastructure-as-code for cloud deployment
+Here are selected projects from my portfolio:
 
-*More projects coming soon!*
+- **[World Wallet AI](https://github.com/PWFB/world-wallet-ai)** — Web3 wallet application and blockchain integrations.
+- **[FlowPay](https://github.com/Balmasexy/flowpay)** — Payment platform and financial application.
+- **[PWFB Microfinance](https://github.com/PWFB/pwfb-microfinance)** — Microfinance and financial management platform.
+- **[BALMZ AI](https://github.com/Balmasexy/balmz-ai)** — BALMZ-related software project.
+- **[Balmz Pay](https://github.com/Balmasexy/Balmz-Pay)** — Payment application project.
+- **[PWFB Magnetic Charge](https://github.com/Balmasexy/PWFB-Magnetic-Charge)** — Magnetic charging project.
+- **[MagCharge Sales SaaS](https://github.com/Balmasexy/magcharge-sales-saas)** — Sales SaaS application.
+- **[Perfect Wisdom School](https://github.com/Balmasexy/perfectwisdom-school)** — School management project.
+
+**[Browse all public repositories](https://github.com/Balmasexy?tab=repositories)** — Explore the complete public repository portfolio, including additional projects and contributions.
 
 ## 🌱 Currently Learning
 
